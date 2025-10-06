@@ -21,4 +21,4 @@ Execute o comando abaixo para rodar o servidor de desenvolvimento
 npm run dev
 ```
 
-O front-end da aplicação está hospedado no seguinte endereço `https://job-matcher-backend-production-c4b9.up.railway.app`
+O front-end da aplicação está hospedado no seguinte endereço `https://job-matcher-frontend-arcawave.vercel.app/`
