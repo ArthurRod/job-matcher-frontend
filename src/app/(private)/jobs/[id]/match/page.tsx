@@ -23,6 +23,7 @@ export default function MatchPage() {
 
   useEffect(() => {
     fetchMatches();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchMatches = async () => {

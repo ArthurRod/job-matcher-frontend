@@ -30,6 +30,7 @@ export default function JobsPage() {
 
   useEffect(() => {
     fetchJobs(page);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   async function fetchJobs(page: number) {

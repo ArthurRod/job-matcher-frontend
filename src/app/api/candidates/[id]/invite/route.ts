@@ -2,9 +2,10 @@ import {NextRequest, NextResponse} from "next/server";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export async function POST(req: NextRequest, {params}: {params: {id: string}}) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function POST(req: NextRequest, context: any) {
   const token = req.cookies.get("token")?.value;
-  const {id} = params;
+  const {id} = context.params;
 
   try {
     const res = await fetch(`${BACKEND_URL}/candidates/${id}/invite`, {

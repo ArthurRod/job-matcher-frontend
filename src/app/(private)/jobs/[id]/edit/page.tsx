@@ -17,6 +17,7 @@ export default function EditJobPage() {
   const params = useParams();
   const jobId = params.id;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [job, setJob] = useState<Job | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [title, setTitle] = useState("");
@@ -28,6 +29,7 @@ export default function EditJobPage() {
 
   useEffect(() => {
     fetchJob();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchJob = async () => {

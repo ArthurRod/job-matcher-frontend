@@ -2,9 +2,10 @@ import {NextRequest, NextResponse} from "next/server";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export async function GET(req: NextRequest, {params}: {params: {id: string}}) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function GET(req: NextRequest, context: any) {
   const token = req.cookies.get("token")?.value;
-  const {id} = params;
+  const {id} = context.params;
 
   const res = await fetch(`${BACKEND_URL}/jobs/${id}`, {
     headers: {Authorization: token ? `Bearer ${token}` : ""},
@@ -14,9 +15,10 @@ export async function GET(req: NextRequest, {params}: {params: {id: string}}) {
   return NextResponse.json(data, {status: res.status});
 }
 
-export async function PUT(req: NextRequest, {params}: {params: {id: string}}) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function PUT(req: NextRequest, context: any) {
   const token = req.cookies.get("token")?.value;
-  const {id} = params;
+  const {id} = context.params;
   const body = await req.json();
 
   const res = await fetch(`${BACKEND_URL}/jobs/${id}`, {
@@ -32,12 +34,10 @@ export async function PUT(req: NextRequest, {params}: {params: {id: string}}) {
   return NextResponse.json(data, {status: res.status});
 }
 
-export async function DELETE(
-  req: NextRequest,
-  {params}: {params: {id: string}}
-) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function DELETE(req: NextRequest, context: any) {
   const token = req.cookies.get("token")?.value;
-  const {id} = params;
+  const {id} = context.params;
 
   const res = await fetch(`${BACKEND_URL}/jobs/${id}`, {
     method: "DELETE",
